@@ -1,0 +1,36 @@
+<div class="input-group rounded-listKpiCalc" [style.width]="widthSearchInput">
+  <input
+  type="search"
+  class="form-control rounded"
+  aria-label="Search"
+  aria-describedby="search-addon"
+  [ngModelOptions]="{ standalone: true }"
+  [(ngModel)]="filterInput"
+  (input)="applyFilterComponent(
+  compId,
+  compType,
+  filterInput,
+  fieldText
+  )
+  "
+  placeholder="{{ filterInputPlaceHolder }}"
+  />
+  <span class="input-group-text border-0" id="search-addon">
+  <i class="fas fa-search"></i>
+  </span>
+</div>
+<br />
+<mat-label
+>{{ labelText }}
+<i class={{classIconLabel}}></i>
+<span> {{  nbItems }}</span>
+</mat-label>
+<br />
+<div *ngIf="remSelUnselClass" class="icon-container">
+  <mat-label><i class="fas fa-arrow-up remove-All icon-s" title="Select All" (click)="selectAllListBox(compId)"></i></mat-label>
+  &nbsp;
+  <mat-label><i class="fas fa-arrow-down remove-All icon-s" title="Unselect All" (click)="UnselectAllListBox(compId)"></i></mat-label>
+</div>
+<div class="form-group">
+<select id={{compId}} name={{compId}}></select>
+</div>

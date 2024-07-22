@@ -1,0 +1,155 @@
+<div class="container">
+  <div class="row">
+    <div class="col"></div>
+    <div class="col-6">
+      <app-alert-spinner
+        [loadingSpinner]="loadingGridRdv"
+        [lblLoadingText]="lblloadingGrid"
+        [fontSize]="'large'"
+      >
+      </app-alert-spinner>
+    </div>
+    <div class="col"></div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col"></div>
+    <div class="col-6">
+      <h2>History of already booked appointments</h2>
+    </div>
+    <div class="col"></div>
+  </div>
+</div>
+<div id="gridRdv"></div>
+
+<div #myDivElement class="action-btn-grid">
+  <button class="k-button k-grid-edit btn-grid">
+    <i class="fa fa-edit ic-grid" aria-hidden="true"> </i> &nbsp; Edit
+  </button>
+  <!-- <button class="k-button k-grid-remove btn-grid">
+    <i class="fa fa-trash ic-grid" aria-hidden="true"> </i>&nbsp; Supprimer
+  </button> -->
+</div>
+<div #addRdv class="action-btn-grid">
+  <button class="k-button k-grid-add">
+    <i class="fa fa-plus ic-grid" aria-hidden="true"> </i> &nbsp; Add Appointment
+  </button>
+</div>
+<div id="addDialog" class="display-add">
+  <br />
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <mat-form-field class="cal-name">
+          <mat-label class="labelFormulas">Appointement title</mat-label>
+          <input
+            matInput
+            placeholder="explanatory title..."
+            [(ngModel)]="titreInput"
+            class="inputFormulas"
+          />
+        </mat-form-field>
+        <span
+          *ngIf="ctrlValdtitre"
+          class="k-widget k-tooltip k-tooltip-validation k-invalid-msg"
+          data-for="kpiPreviousSteps"
+          role="alert"
+        >
+          <span class="k-icon k-i-warning"> </span>
+          {{ msgErrorValdtitre }}
+        </span>
+      </div>
+      <div class="col">
+        <mat-label class="labelFormulas">Appointement date</mat-label>
+        <input id="datepicker" class="date-birthday" />
+        <span
+          *ngIf="ctrlValdateRdv"
+          class="k-widget k-tooltip k-tooltip-validation k-invalid-msg"
+          data-for="kpiPreviousSteps"
+          role="alert"
+        >
+          <span class="k-icon k-i-warning"> </span>
+          {{ msgErrorValdateRdv }}
+        </span>
+      </div>
+    </div>
+<div class="row">
+  <div class="col"></div>
+  <div class="col">
+    <span
+    *ngIf="ctrValIsExistDateRdv"
+    class="k-widget k-tooltip k-tooltip-info notif-inf"
+    data-for="kpiPreviousSteps"
+    role="alert"
+  >
+    <span class="k-icon k-i-info"> </span>
+    There is already an appointment on this date!
+  </span>
+  <span
+    *ngIf="ctrValDateVAlid"
+    class="k-widget k-tooltip k-tooltip-info notif-inf"
+    data-for="kpiPreviousSteps"
+    role="alert"
+  >
+    <span class="k-icon k-i-info"> </span>
+    Please enter valid date !
+  </span>
+  </div>
+  <div class="col"></div>
+</div>
+    <br />
+    <br />
+    <br />
+    <div
+      class="k-dialog-buttongroup k-dialog-button-layout-stretched"
+      role="toolbar"
+    >
+      <button
+        id="addButton"
+        (click)="saveRecord()"
+        class="k-button k-primary saveBtn"
+        tabindex="0"
+      >
+        Save appointement
+        <i class="fas fa-check"></i>
+      </button>
+      <button
+        id="cancelButton"
+        (click)="cancelDialog('addDialog')"
+        class="k-button"
+        tabindex="0"
+      >
+        Cancel
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+  </div>
+</div>
+<div id="deleteDialog" class="display-add">
+  <br />
+  <h2>Deleting appointement</h2>
+  <p>Are you sure you want to delete this appointment?</p>
+  <br />
+  <div
+    class="k-dialog-buttongroup k-dialog-button-layout-stretched"
+    role="toolbar"
+  >
+    <button
+      id="confirmDeleteButton"
+      class="k-button k-primary saveBtn"
+      tabindex="0"
+      (click)="removeRecord()"
+    >
+      Delete <i class="fas fa-trash"></i>
+    </button>
+    <button
+      id="cancelDeleteButton"
+      class="k-button"
+      tabindex="0"
+      (click)="cancelDialog('deleteDialog')"
+    >
+      Cancel <i class="fas fa-times"></i>
+    </button>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+.border-0{
+  font-size: smaller;
+}
+/*.rounded-listKpiCalc{
+  width: 250px;
+  }*/
+.icon-s{
+  position: relative;
+  font-size: initial;
+  border: 1px #1e1d1d solid;
+  border-radius: 3px;
+  border-color: aliceblue;
+  cursor: pointer;
+}
+.icon-s:hover {
+  /* color: #daecf4;*/ /* Text color on hover */
+   background-color: #93c8df; /* Background color on hover */
+ }

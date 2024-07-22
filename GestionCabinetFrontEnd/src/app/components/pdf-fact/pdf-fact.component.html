@@ -1,0 +1,59 @@
+<div class="container">
+<div class="row">
+  <div class="col"></div>
+  <div class="col">
+    <button class="pdf-dow" (click)="getPDF('.pdf-page')"> <i class="fa fa-file-pdf"></i>
+      Export  pdf
+    </button>
+  </div>
+  <div class="col"></div>
+</div>
+</div>
+<br>
+<div class="page-container hidden-on-narrow">
+  <div class="pdf-page size-a4">
+    <div class="inner-page">
+      <div class="pdf-header">
+        <span class="company-logo">
+          <img  class="imf-fct" src="assets/dist/img/pscho.jpg" /> psychotherapy office Amen
+        </span>
+        <span class="invoice-number">ref:#{{factureViewed.id.substring(0, 6)}}</span>
+      </div>
+      <div class="pdf-footer">
+        <p>
+          <b>  {{factureViewed.adressCabinet}}<br /> </b>
+          <b> {{factureViewed.matrFiscCabinet}}<br /></b>
+        </p>
+      </div>
+      <div class="addresses">
+        <div class="for">
+          <h3>Facture for</h3>
+          <p>
+           {{patient.firstName}}<br />
+            {{patient.lastName}}<br />
+            {{patient.address}}
+          </p>
+        </div>
+
+        <div class="from">
+          <h3>From</h3>
+          <p>
+            {{factureViewed.adressCabinet}} <br />
+            {{factureViewed.matrFiscCabinet}}<br />
+          </p>
+          <p>
+            Invoice ID: {{factureViewed.id.substring(0, 6)}}<br />
+            Invoice Date : {{ factureViewed.dateCreation | date:'yyyy-MM-dd' }}<br />
+          </p>
+        </div>
+      </div>
+      <div class="pdf-body">
+        <div id="grid-cons"></div>
+        <p class="signature">
+          Signature: ________________ <br /><br />
+          Date: {{ currentDateTime | date:'yyyy-MM-dd' }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

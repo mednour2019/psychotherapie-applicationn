@@ -1,0 +1,393 @@
+<div class="container">
+  <div class="row">
+    <div class="col"></div>
+    <div class="col-6">
+      <app-alert-spinner
+        [loadingSpinner]="loadingGridPatient"
+        [lblLoadingText]="lblloadingGrid"
+        [fontSize]="'large'"
+      >
+      </app-alert-spinner>
+    </div>
+    <div class="col"></div>
+  </div>
+</div>
+<div id="gridPatients"></div>
+
+<div #myDivElement class="action-btn-grid">
+  <button class="k-button k-grid-edit btn-grid">
+    <i class="fa fa-edit ic-grid" aria-hidden="true"> </i> &nbsp; Edit
+  </button>
+  <button class="k-button k-grid-remove btn-grid">
+    <i class="fa fa-trash ic-grid" aria-hidden="true"> </i>&nbsp; Remove
+  </button>
+</div>
+<div #addPatient class="action-btn-grid">
+  <button class="k-button k-grid-add">
+    <i class="fa fa-plus ic-grid" aria-hidden="true"> </i> &nbsp; Add Patient
+  </button>
+</div>
+
+<div id="addDialog" class="display-add">
+  <br />
+  <div class="container">
+    <div class="row">
+      <div class="col-sm">
+        <mat-form-field class="cal-name">
+          <mat-label class="labelFormulas">user name</mat-label>
+          <input
+            matInput
+            placeholder="explanatory user ..."
+            [(ngModel)]="userNameInput"
+            class="inputFormulas"
+            [readonly]="!this.isModeAdd ? true : null"
+          />
+        </mat-form-field>
+        <span
+          *ngIf="ctrlValduserName"
+          class="k-widget k-tooltip k-tooltip-validation k-invalid-msg"
+          data-for="kpiPreviousSteps"
+          role="alert"
+        >
+          <span class="k-icon k-i-warning"> </span>
+          {{ msgErrorValduserName }}
+        </span>
+        <span
+          *ngIf="ctrlValduserNameExistant"
+          class="k-widget k-tooltip k-tooltip-validation k-invalid-msg"
+          data-for="kpiPreviousSteps"
+          role="alert"
+        >
+          <span class="k-icon k-i-warning"> </span>
+          {{ msgErrorValduserNameExistant }}
+        </span>
+      </div>
+      <div class="col-sm">
+        <mat-form-field class="cal-name">
+          <mat-label class="labelFormulas">patient Name</mat-label>
+          <input
+            matInput
+            placeholder="explanatory pat name..."
+            [(ngModel)]="firstNameInput"
+            class="inputFormulas"
+          />
+        </mat-form-field>
+        <span
+          *ngIf="ctrlValdfirstName"
+          class="k-widget k-tooltip k-tooltip-validation k-invalid-msg"
+          data-for="kpiPreviousSteps"
+          role="alert"
+        >
+          <span class="k-icon k-i-warning"> </span>
+          {{ msgErrorValdfirstName }}
+        </span>
+      </div>
+      <div class="col-sm">
+        <mat-form-field class="cal-name">
+          <mat-label class="labelFormulas">patient last name</mat-label>
+          <input
+            matInput
+            placeholder="explanatory pat last name..."
+            [(ngModel)]="lastNameInput"
+            class="inputFormulas"
+          />
+        </mat-form-field>
+        <span
+          *ngIf="ctrlValdlastName"
+          class="k-widget k-tooltip k-tooltip-validation k-invalid-msg"
+          data-for="kpiPreviousSteps"
+          role="alert"
+        >
+          <span class="k-icon k-i-warning"> </span>
+          {{ msgErrorValdlastName }}
+        </span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm">
+        <mat-form-field class="cal-name">
+          <mat-label class="labelFormulas">Email</mat-label>
+          <input
+            type="email"
+            matInput
+            placeholder="explanatory Email..."
+            [(ngModel)]="emailInput"
+            class="inputFormulas"
+            email
+          />
+          <mat-error>
+            <span>Invalid email format</span>
+          </mat-error>
+        </mat-form-field>
+        <span
+          *ngIf="ctrlValdEmail"
+          class="k-widget k-tooltip k-tooltip-validation k-invalid-msg"
+          data-for="kpiPreviousSteps"
+          role="alert"
+        >
+          <span class="k-icon k-i-warning"> </span>
+          {{ msgErrorValdEmail }}
+        </span>
+      </div>
+      <div class="col-sm">
+        <mat-form-field class="cal-name" [hidden]="!isModeAdd">
+          <mat-label class="labelFormulas">password patient</mat-label>
+          <input
+            type="password"
+            matInput
+            [(ngModel)]="passwordInput"
+            class="inputFormulas"
+            [readonly]="!this.isModeAdd ? true : null"
+          />
+        </mat-form-field>
+        <span
+          *ngIf="ctrlValdPassword"
+          class="k-widget k-tooltip k-tooltip-validation k-invalid-msg"
+          data-for="kpiPreviousSteps"
+          role="alert"
+        >
+          <span class="k-icon k-i-warning"> </span>
+          {{ msgErrorValdpassword }}
+        </span>
+        <span
+          *ngIf="ctrlValdPasswordCaracVal"
+          class="k-widget k-tooltip k-tooltip-validation k-invalid-msg"
+          data-for="kpiPreviousSteps"
+          role="alert"
+        >
+          <span class="k-icon k-i-warning"> </span>
+          {{ msgErrorValdpasswordcarac }}
+        </span>
+      </div>
+      <div class="col-sm">
+        <mat-label class="labelFormulas">birth day</mat-label>
+        <input id="datepicker" class="date-birthday" [(ngModel)]="birthday" />
+        <span
+          *ngIf="ctrlValdBirthDay"
+          class="k-widget k-tooltip k-tooltip-validation k-invalid-msg"
+          data-for="kpiPreviousSteps"
+          role="alert"
+        >
+          <span class="k-icon k-i-warning"> </span>
+          {{ msgErrorValdBirthDay }}
+        </span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm">
+        <mat-label class="olap-label"> Sexe </mat-label>
+        <br />
+        <br />
+        <div class="form-group-radio-group">
+          <mat-radio-group
+            aria-label="Select an option"
+            [(ngModel)]="selectedValueRadioBtnSexe"
+            (change)="onRadioChange($event)"
+            color="primary"
+          >
+            <mat-radio-button class="custom-radio" value="1"
+              >male</mat-radio-button
+            >
+            <mat-radio-button class="custom-radio" value="2"
+              >female</mat-radio-button
+            >
+          </mat-radio-group>
+        </div>
+        <br />
+        <span
+          *ngIf="ctrlValdSexe"
+          class="k-widget k-tooltip k-tooltip-validation k-invalid-msg"
+          data-for="kpiPreviousSteps"
+          role="alert"
+        >
+          <span class="k-icon k-i-warning"> </span>
+          {{ msgErrorValdSexe }}
+        </span>
+      </div>
+      <div class="col-sm">
+        <mat-form-field class="cal-name">
+          <mat-label class="labelFormulas">phone</mat-label>
+          <input
+            type="tel"
+            matInput
+            [(ngModel)]="phoneInput"
+            class="inputFormulas"
+          />
+        </mat-form-field>
+        <span
+          *ngIf="ctrlValdPhone"
+          class="k-widget k-tooltip k-tooltip-validation k-invalid-msg"
+          data-for="kpiPreviousSteps"
+          role="alert"
+        >
+          <span class="k-icon k-i-warning"> </span>
+          {{ msgErrorValdphone }}
+        </span>
+      </div>
+      <div class="col-sm">
+        <mat-form-field class="cal-name">
+          <mat-label class="labelFormulas">patient Address</mat-label>
+          <input
+            type="text"
+            matInput
+            [(ngModel)]="addressInput"
+            class="inputFormulas"
+          />
+        </mat-form-field>
+        <span
+          *ngIf="ctrlValdAddress"
+          class="k-widget k-tooltip k-tooltip-validation k-invalid-msg"
+          data-for="kpiPreviousSteps"
+          role="alert"
+        >
+          <span class="k-icon k-i-warning"> </span>
+          {{ msgErrorValAddress }}
+        </span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm">
+        <mat-label class="olap-label"> Governorate </mat-label>
+        <br />
+        <div class="form-group">
+          <select id="dropDownCity" name="dropDownCity"></select>
+        </div>
+        <br />
+        <span
+          *ngIf="ctrlValdCity"
+          class="k-widget k-tooltip k-tooltip-validation k-invalid-msg"
+          data-for="kpiPreviousSteps"
+          role="alert"
+        >
+          <span class="k-icon k-i-warning"> </span>
+          {{ msgErrorValdCity }}
+        </span>
+      </div>
+      <div class="col-sm">
+        <mat-form-field class="cal-name">
+          <mat-label class="labelFormulas">patient job</mat-label>
+          <input
+            matInput
+            placeholder="explanatory job..."
+            [(ngModel)]="jobInput"
+            class="inputFormulas"
+          />
+        </mat-form-field>
+        <span
+          *ngIf="ctrlValdjob"
+          class="k-widget k-tooltip k-tooltip-validation k-invalid-msg"
+          data-for="kpiPreviousSteps"
+          role="alert"
+        >
+          <span class="k-icon k-i-warning"> </span>
+          {{ msgErrorValdjob }}
+        </span>
+      </div>
+      <div class="col-sm">
+        <mat-label class="olap-label"> marital status </mat-label>
+        <br />
+        <div class="form-group">
+          <select
+            id="dropDownMarriedSituation"
+            name="dropDownMarriedSituation"
+          ></select>
+        </div>
+        <br />
+        <span
+          *ngIf="ctrlValdMarriedSituation"
+          class="k-widget k-tooltip k-tooltip-validation k-invalid-msg"
+          data-for="kpiPreviousSteps"
+          role="alert"
+        >
+          <span class="k-icon k-i-warning"> </span>
+          {{ msgErrorValdMarriedSituation }}
+        </span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm">
+        <mat-label class="olap-label"> chronic diseases </mat-label>
+        <br />
+        <br />
+        <div class="form-group-radio-group">
+          <mat-radio-group
+            aria-label="Select an option"
+            [(ngModel)]="selectedValueRadioBtnChroniDis"
+            (change)="onRadioChangeChrinicDeas($event)"
+            color="primary"
+          >
+            <mat-radio-button class="custom-radio" value="1"
+              >yes</mat-radio-button
+            >
+            <mat-radio-button class="custom-radio" value="2"
+              >no</mat-radio-button
+            >
+          </mat-radio-group>
+        </div>
+        <br />
+        <span
+          *ngIf="ctrlValdSexe"
+          class="k-widget k-tooltip k-tooltip-validation k-invalid-msg"
+          data-for="kpiPreviousSteps"
+          role="alert"
+        >
+          <span class="k-icon k-i-warning"> </span>
+          {{ msgErrorValdSexe }}
+        </span>
+      </div>
+    </div>
+    <br />
+    <br />
+    <div
+      class="k-dialog-buttongroup k-dialog-button-layout-stretched"
+      role="toolbar"
+    >
+      <button
+        id="addButton"
+        (click)="saveRecord()"
+        class="k-button k-primary saveBtn"
+        tabindex="0"
+      >
+        Save Patient
+        <i class="fas fa-check"></i>
+      </button>
+      <button
+        id="cancelButton"
+        (click)="cancelDialog('addDialog')"
+        class="k-button"
+        tabindex="0"
+      >
+        Cancel
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div id="deleteDialog" class="display-add">
+  <br />
+  <h2>patient deletion</h2>
+  <p>Are you sure you want to delete this patient?</p>
+  <br />
+  <div
+    class="k-dialog-buttongroup k-dialog-button-layout-stretched"
+    role="toolbar"
+  >
+    <button
+      id="confirmDeleteButton"
+      class="k-button k-primary saveBtn"
+      tabindex="0"
+      (click)="removeRecord()"
+    >
+      Delete <i class="fas fa-trash"></i>
+    </button>
+    <button
+      id="cancelDeleteButton"
+      class="k-button"
+      tabindex="0"
+      (click)="cancelDialog('deleteDialog')"
+    >
+      Cancel <i class="fas fa-times"></i>
+    </button>
+  </div>
+</div>

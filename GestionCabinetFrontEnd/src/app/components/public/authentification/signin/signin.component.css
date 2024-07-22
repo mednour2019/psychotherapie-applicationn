@@ -1,0 +1,56 @@
+/*.bg-col{
+ background-color: aliceblue;
+}*/
+.icon-sm{
+  font-size: x-large !important;
+}
+.bg-colh{
+  background-color: aliceblue;
+ }
+.img-log{
+  width: 80px;
+  height: 80px;
+
+}
+.bg-col {
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  padding: 20px;
+}
+.bg-colh {
+  background-color: #343a40;
+  color: white;
+  border-radius: 10px 10px 0 0;
+}
+.img-log {
+  width: 100px;
+  height: 100px;
+}
+.icon-sm {
+  font-size: 1.5em;
+  vertical-align: middle;
+}
+.btn-secondary {
+  background-color: #343a40;
+  border-color: #343a40;
+}
+
+
+.bg {
+  /* The image used */
+  background-image: url("src/assets/dist/img/bckg.jpg");
+
+  /* Full height */
+  height: 100%;
+
+  /* Make sure the background covers the entire page */
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

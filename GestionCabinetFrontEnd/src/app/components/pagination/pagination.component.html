@@ -1,0 +1,28 @@
+<div class="row">
+<div class="col">
+  <mat-paginator
+  class="pagi-list-col"
+    [length]="length"
+    [pageSize]="pageSize"
+    (page)="handlePage($event)"
+    [disabled]="isPaginatorDiabled"
+  ></mat-paginator>
+</div>
+
+<div class="col">
+  <div class="all-items">
+    <button mat-icon-button (click)="goToFirst()"[disabled]="isPaginatorDiabled">
+      <mat-icon>first_page</mat-icon>
+    </button>
+    <button mat-icon-button (click)="goToLast()"   [disabled]="isPaginatorDiabled">
+      <mat-icon>last_page</mat-icon>
+    </button>
+    <mat-label
+    >
+    {{allItems}}
+
+  </mat-label>
+  </div>
+</div>
+
+</div>

@@ -1,0 +1,17 @@
+.checkbox-list-container {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  height: 250px; /* Set the desired height for the list */
+  overflow-y: auto; /* Enable vertical scroll bar */
+  width: 250px;
+}
+
+.checkbox-list {
+  padding: 10px;
+}
+.rounded{
+width: 80%;
+}
+.border-0{
+  font-size: smaller;
+}

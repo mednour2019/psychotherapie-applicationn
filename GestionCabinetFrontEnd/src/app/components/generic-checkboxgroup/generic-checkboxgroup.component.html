@@ -1,0 +1,38 @@
+<mat-label >Number of {{ labelItemMeasDimCalcShowing }} selected: {{ selectedCount }}
+
+</mat-label>
+<i class= "{{ iconLabel }}"></i>
+
+<div class="input-group rounded ">
+
+  <input
+  matInput
+  [(ngModel)]="filterText"
+  (ngModelChange)="applyFilter()"
+  type="search"
+  class="form-control rounded"
+  aria-label="Search"
+  aria-describedby="search-addon"
+  placeholder="Filter"
+/>
+  <span class="input-group-text border-0" id="search-addon">
+    <i class="fas fa-search"></i>
+  </span>
+</div>
+<br/>
+<div class="checkbox-list-container">
+  <mat-list class="checkbox-list">
+    <mat-list-item>
+      <mat-checkbox [(ngModel)]="selectAllCheckbox" (change)="selectAllItems($event.checked)">
+        Select All
+      </mat-checkbox>
+    </mat-list-item>
+    <mat-list-item *ngFor="let item of filteredListMeasDimCal">
+      <mat-checkbox [(ngModel)]="item.selected" (change)="updateSelectedCount()" color="primary" >
+        {{ item[attributeMeasDimCalClass] }}
+      </mat-checkbox>
+    </mat-list-item>
+  </mat-list>
+
+
+</div>

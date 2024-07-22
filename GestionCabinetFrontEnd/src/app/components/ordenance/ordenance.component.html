@@ -1,0 +1,138 @@
+<div class="container">
+  <div class="row">
+    <div class="col"></div>
+    <div class="col-6">
+      <app-alert-spinner
+        [loadingSpinner]="loadingGridRdv"
+        [lblLoadingText]="lblloadingGrid"
+        [fontSize]="'large'"
+      >
+      </app-alert-spinner>
+    </div>
+    <div class="col"></div>
+  </div>
+</div>
+<div id="gridOrd"></div>
+<div #myDivElement class="action-btn-grid">
+  <button class="k-button k-grid-edit btn-grid">
+    <i class="fa fa-edit ic-grid" aria-hidden="true"> </i> &nbsp; Edit
+  </button>
+  <button class="k-button k-grid-remove btn-grid">
+    <i class="fa fa-trash ic-grid" aria-hidden="true"> </i>&nbsp; Delete
+  </button>
+</div>
+<div #addOrd class="action-btn-grid">
+  <button class="k-button k-grid-add">
+    <i class="fa fa-plus ic-grid" aria-hidden="true"> </i> &nbsp; Add
+    prescription
+  </button>
+</div>
+<div id="addDialog" class="display-add">
+  <br />
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <mat-form-field class="cal-name">
+          <mat-label class="labelFormulas">prescription issuer</mat-label>
+          <input
+            matInput
+            placeholder=" explanatory issuer..."
+            [(ngModel)]="emmetInput"
+            class="inputFormulas"
+          />
+        </mat-form-field>
+      </div>
+      <div class="col">
+        <mat-label class="labelFormulas">prescription validity date</mat-label>
+        <input id="datepicker" class="date-birthday" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <mat-form-field class="interpcalc">
+          <mat-label>Prescription description</mat-label>
+          <textarea
+            matInput
+            placeholder="explanatory description..."
+            [(ngModel)]="descInput"
+            class="inputGroup"
+            id="interp-calc"
+          ></textarea>
+        </mat-form-field>
+        <br />
+      </div>
+      <div class="col">
+        <mat-form-field class="interpcalc">
+          <mat-label>prescription recommendation follow-up</mat-label>
+          <textarea
+            matInput
+            placeholder="explanatory recommandation..."
+            [(ngModel)]="suiviRecInput"
+            class="inputGroup"
+            id="interp-calc"
+          ></textarea>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <mat-label class="labelFormulas">patients list </mat-label>
+        <input id="list-patients" />
+      </div>
+    </div>
+
+    <br />
+    <br />
+    <br />
+    <div
+      class="k-dialog-buttongroup k-dialog-button-layout-stretched"
+      role="toolbar"
+    >
+      <button
+        id="addButton"
+        (click)="saveRecord()"
+        class="k-button k-primary saveBtn"
+        tabindex="0"
+      >
+        Save prescription
+        <i class="fas fa-check"></i>
+      </button>
+      <button
+        id="cancelButton"
+        (click)="cancelDialog('addDialog')"
+        class="k-button"
+        tabindex="0"
+      >
+        Cancel
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+  </div>
+</div>
+<div id="deleteDialog" class="display-add">
+  <br />
+  <h2>prescription deletion</h2>
+  <p>Are you sure you want to delete this prescription?</p>
+  <br />
+  <div
+    class="k-dialog-buttongroup k-dialog-button-layout-stretched"
+    role="toolbar"
+  >
+    <button
+      id="confirmDeleteButton"
+      class="k-button k-primary saveBtn"
+      tabindex="0"
+      (click)="removeRecord()"
+    >
+      Delete <i class="fas fa-trash"></i>
+    </button>
+    <button
+      id="cancelDeleteButton"
+      class="k-button"
+      tabindex="0"
+      (click)="cancelDialog('deleteDialog')"
+    >
+      Cancel <i class="fas fa-times"></i>
+    </button>
+  </div>
+</div>

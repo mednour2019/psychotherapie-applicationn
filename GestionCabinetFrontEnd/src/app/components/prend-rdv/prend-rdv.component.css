@@ -1,0 +1,30 @@
+.action-btn-grid{
+  display: none;
+}
+.display-add{
+  display: contents;
+}
+.inputFormulas{
+  height: 20px;
+  font-size: small !important;
+}
+.cal-name{
+  width: 350px;
+}
+.form-group-radio-group{
+  border-width: 1px;
+    border-style: solid;
+    box-sizing: border-box;
+    border-color: #bbdceb;
+    border-radius: 2px;
+    width: 350px;
+}
+.mat-datepicker-content {
+  z-index: 1500; /* Adjust the value as needed */
+}
+.date-birthday{
+  width: 300px;
+}
+.notif-inf{
+  width: 400px;
+}

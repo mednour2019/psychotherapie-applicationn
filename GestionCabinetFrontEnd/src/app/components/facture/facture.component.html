@@ -1,0 +1,191 @@
+<div class="container">
+  <div class="row">
+    <div class="col"></div>
+    <div class="col-6">
+      <app-alert-spinner
+        [loadingSpinner]="loadingGridFactr"
+        [lblLoadingText]="lblloadingGrid"
+        [fontSize]="'large'"
+      >
+      </app-alert-spinner>
+    </div>
+    <div class="col"></div>
+  </div>
+</div>
+<div id="gridFactr"></div>
+<div #myDivElement class="action-btn-grid">
+  <button class="k-button k-grid-edit btn-grid">
+    <i class="fa fa-edit ic-grid" aria-hidden="true"> </i> &nbsp; Edit
+  </button>
+  <button class="k-button k-grid-remove btn-grid">
+    <i class="fa fa-trash ic-grid" aria-hidden="true"> </i>&nbsp; Delete
+  </button>
+  <button class="k-button k-grid-visualize btn-grid">
+    <i class="fa fa-eye ic-grid" aria-hidden="true"> </i>&nbsp; View
+  </button>
+</div>
+<div #addFactr class="action-btn-grid">
+  <button class="k-button k-grid-add">
+    <i class="fa fa-plus ic-grid" aria-hidden="true"> </i> &nbsp; Add Invoice
+  </button>
+</div>
+<div id="addDialog" class="display-add">
+  <br />
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <mat-form-field class="interpcalc">
+          <mat-label>Description</mat-label>
+          <textarea
+            matInput
+            placeholder="Invoice description..."
+            [(ngModel)]="desFactInput"
+            class="inputGroup"
+            id="interp-calc"
+          ></textarea>
+        </mat-form-field>
+        <span
+          *ngIf="ctrlValdDesc"
+          class="k-widget k-tooltip k-tooltip-validation k-invalid-msg"
+          data-for="kpiPreviousSteps"
+          role="alert"
+        >
+          <span class="k-icon k-i-warning"> </span>
+          Invoice description is required!
+        </span>
+      </div>
+      <div class="col">
+        <mat-form-field class="cal-name">
+          <mat-label class="labelFormulas">office address</mat-label>
+          <input
+            matInput
+            placeholder="office adress..."
+            [(ngModel)]="addresseInput"
+            class="inputFormulas"
+          />
+        </mat-form-field>
+        <span
+          *ngIf="ctrlValdAdrs"
+          class="k-widget k-tooltip k-tooltip-validation k-invalid-msg"
+          data-for="kpiPreviousSteps"
+          role="alert"
+        >
+          <span class="k-icon k-i-warning"> </span>
+          Office address is mandatory!
+        </span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <mat-form-field class="cal-name">
+          <mat-label class="labelFormulas"
+            >tax identification number of the office</mat-label
+          >
+          <input
+            matInput
+            placeholder="tax iden off..."
+            [(ngModel)]="matFiscInput"
+            class="inputFormulas"
+          />
+        </mat-form-field>
+        <span
+          *ngIf="ctrlValdMatr"
+          class="k-widget k-tooltip k-tooltip-validation k-invalid-msg"
+          data-for="kpiPreviousSteps"
+          role="alert"
+        >
+          <span class="k-icon k-i-warning"> </span>
+          The tax identification number of the office is mandatory!
+        </span>
+      </div>
+      <div class="col"></div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <mat-label class="labelFormulas">patient list </mat-label>
+        <div class="form-group">
+          <input id="list-patient" />
+        </div>
+        <br />
+        <span
+          *ngIf="ctrlValdPat"
+          class="k-widget k-tooltip k-tooltip-validation k-invalid-msg"
+          data-for="kpiPreviousSteps"
+          role="alert"
+        >
+          <span class="k-icon k-i-warning"> </span>
+          Assigning the invoice to the patient is mandatory!
+        </span>
+      </div>
+      <div class="col">
+        <mat-label class="labelFormulas"
+          >list of unpaid consultations
+        </mat-label>
+        <div class="form-group">
+          <div id="grid-cons-pat"></div>
+        </div>
+        <span
+          *ngIf="ctrlValdCons"
+          class="k-widget k-tooltip k-tooltip-validation k-invalid-msg"
+          data-for="kpiPreviousSteps"
+          role="alert"
+        >
+          <span class="k-icon k-i-warning"> </span>
+          Assigning the invoice to the consultation is mandatory!
+        </span>
+      </div>
+    </div>
+  </div>
+  <br />
+  <br />
+  <div
+    class="k-dialog-buttongroup k-dialog-button-layout-stretched"
+    role="toolbar"
+  >
+    <button
+      id="addButton"
+      (click)="saveRecord()"
+      class="k-button k-primary saveBtn"
+      tabindex="0"
+    >
+    Add invoice
+      <i class="fas fa-check"></i>
+    </button>
+    <button
+      id="cancelButton"
+      (click)="cancelDialog('addDialog')"
+      class="k-button"
+      tabindex="0"
+    >
+      Cancel
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+</div>
+<div id="deleteDialog" class="display-add">
+  <br />
+  <h2>deleting an invoice</h2>
+  <p>Are you sure you want to delete this invoice?</p>
+  <br />
+  <div
+    class="k-dialog-buttongroup k-dialog-button-layout-stretched"
+    role="toolbar"
+  >
+    <button
+      id="confirmDeleteButton"
+      class="k-button k-primary saveBtn"
+      tabindex="0"
+      (click)="removeRecord()"
+    >
+      Delete <i class="fas fa-trash"></i>
+    </button>
+    <button
+      id="cancelDeleteButton"
+      class="k-button"
+      tabindex="0"
+      (click)="cancelDialog('deleteDialog')"
+    >
+      Cancel <i class="fas fa-times"></i>
+    </button>
+  </div>
+</div>

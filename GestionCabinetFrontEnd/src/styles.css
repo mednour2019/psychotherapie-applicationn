@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+/* In styles.css or styles.scss */
+@import '~@fortawesome/fontawesome-free/css/all.css'; /* Import all styles */
+/* Import individual styles */
+@import '~@fortawesome/fontawesome-free/css/fontawesome.css';
+@import '~@fortawesome/fontawesome-free/css/solid.css';
+@import '~@fortawesome/fontawesome-free/css/regular.css';
+@import '~@fortawesome/fontawesome-free/css/brands.css';
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.succ-snackbar button {
+  color: #11b6f7 !important;
+}
+

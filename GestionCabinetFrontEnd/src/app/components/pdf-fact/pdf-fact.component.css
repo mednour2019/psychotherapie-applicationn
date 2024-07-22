@@ -1,0 +1,130 @@
+
+.pdf-page {
+  position: relative;
+  margin: 0 auto;
+  padding: .4in .3in;
+  color: #333;
+  background-color: #fff;
+  box-shadow: 0 5px 10px 0 rgba(0,0,0,.3);
+  box-sizing: border-box;
+}
+
+.pdf-header {
+  padding-bottom: .2in;
+  margin-bottom: .3in;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.invoice-number {
+  padding-top: .1in;
+  float: right;
+}
+
+.pdf-footer {
+  position: absolute;
+  bottom: .25in;
+  left: .3in;
+  right: .3in;
+  padding-top: 0.05in;
+  border-top: 1px solid #e5e5e5;
+  font-size: 0.9em;
+  text-align: left;
+  color: #787878;
+}
+
+.addresses {
+  font-size: 12px;
+}
+
+  .addresses:after {
+    display: block;
+    content: "";
+    clear: both;
+  }
+
+.for {
+  float: left;
+}
+
+.from {
+  float: right;
+}
+
+.addresses p {
+  color: #787878;
+  padding: .05in 0;
+  border-top: 1px solid #e5e5e5;
+}
+
+  .addresses p:first-of-type {
+    border-top: 0;
+  }
+
+.pdf-body {
+  margin-top: .3in;
+}
+
+.company-logo {
+  font-size: 18px;
+  font-weight: bold;
+  color: #3aabf0;
+}
+
+.signature {
+  padding-top: .3in;
+}
+
+/* Dimensions other than px and em should be divided by 1.33 for the proper PDF output */
+.size-a4 {
+  width: 6.2in;
+  height: 8.7in;
+}
+
+.size-letter {
+  width: 6.3in;
+  height: 8.2in;
+}
+
+.size-executive {
+  width: 5.4in;
+  height: 7.8in;
+  font-size: 12px;
+}
+
+.size-executive .pdf-header {
+  margin-bottom: .1in;
+}
+.pdf-page {
+  font-family: "DejaVu Sans", "Arial", sans-serif;
+}
+.imf-fct{
+  width: 50px;
+}
+.pdf-dow {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #6c757d; /* Couleur de fond rouge */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.pdf-dow i {
+  margin-right: 8px; /* Espace entre l'icône et le texte */
+  font-size: 20px;
+}
+
+.pdf-dow:hover {
+  background-color: #c0392b; /* Couleur de fond au survol */
+  transform: translateY(-2px);
+}
+
+.pdf-dow:active {
+  background-color: #a93226; /* Couleur de fond lors du clic */
+  transform: translateY(0);
+}

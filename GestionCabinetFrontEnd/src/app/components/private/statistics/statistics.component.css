@@ -1,0 +1,35 @@
+.nour{
+  color: aliceblue !important;
+}
+.pdf-dow {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #6c757d; /* Couleur de fond rouge */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.pdf-dow i {
+  margin-right: 8px; /* Espace entre l'icône et le texte */
+  font-size: 20px;
+}
+
+.pdf-dow:hover {
+  background-color: #c0392b; /* Couleur de fond au survol */
+  transform: translateY(-2px);
+}
+
+.pdf-dow:active {
+  background-color: #a93226; /* Couleur de fond lors du clic */
+  transform: translateY(0);
+}
+.inner:hover{
+  background-color: #a93226; /* Couleur de fond lors du clic */
+
+}
