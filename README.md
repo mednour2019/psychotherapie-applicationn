@@ -1,4 +1,8 @@
 # psychotherapie-applicationn
+
+Psychotherapy Application
+Technologies: Angular, HTML, CSS, Kendo UI, TypeScript, JavaScript, jQuery, .NET Core Web API, LINQ, Entity Framework (Code First), SQL Server, MVC, C#
+
 Description
 A psychotherapy application that allows psychotherapists and their secretaries to manage appointments, patient information, consultation details, prescription records, invoices, and statistics. Patients can also book appointments remotely through an online interface.
 
