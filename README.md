@@ -1,12 +1,12 @@
 # psychotherapie-applicationn
-This repository contains the source code for a comprehensive patient management system designed for psychotherapy offices. The application aims to streamline the management of patient records, appointments, and therapy sessions, ensuring a seamless experience for both therapists and patients.
-Features
-Patient Records Management: Easily add, update, and retrieve patient information.
-Appointment Scheduling: Schedule, reschedule, and cancel appointments with ease.
-Session Notes: Securely store and access therapy session notes.
-Billing and Invoicing: Generate and manage patient invoices and billing information.
-User Authentication: Secure login for therapists and administrative staff.
-Technology Stack
-Front-end: Angular
-Back-end: .NET Core
-Database: SQL Server
+Description
+A psychotherapy application that allows psychotherapists and their secretaries to manage appointments, patient information, consultation details, prescription records, invoices, and statistics. Patients can also book appointments remotely through an online interface.
+
+Key Features
+1. Login Interface: Secure login interface for both psychotherapists and secretaries.
+2. Patient Interface: Add, delete, and update patient information with detailed records.
+3. Appointment Management: Status management for appointments: pending, rejected, verified.
+4. Consultation Interface: Displays appointments with a status of accepted for the current day.
+5. Prescription Management: Each prescription is linked to a patient with follow-up details and validity date.
+6. Invoice Management: Generate invoices for one or multiple consultation, and option to download invoices.
+7. Dashboard with Statistics: Displays statistics such as profit, number of consultations, etc.
